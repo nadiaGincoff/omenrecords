@@ -11,9 +11,3 @@ export interface Song {
   image: string;
   soundcloudId: number;
 }
-
-// export interface ImageWithDescription {
-
-// }
-
-// export interface ImageWithDescriptionProps
