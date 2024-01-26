@@ -1,40 +1,4 @@
-import type {MenuItem, SocialMediaButton, Song} from "@/types";
-
-export const socialMediaButtons: SocialMediaButton[] = [
-  {
-    id: 1,
-    href: "https://www.instagram.com/theomenrecords/",
-  },
-  {
-    id: 2,
-    href: "https://soundcloud.com/theomenrecords",
-  },
-  {
-    id: 3,
-    href: "https://www.gmail.com/",
-  },
-  {
-    id: 4,
-    href: "https://www.youtube.com/@theomenrecords",
-  },
-  {
-    id: 5,
-    href: "https://www.spotify.com/",
-  },
-];
-
-export const menuItems: MenuItem[] = [
-  {
-    id: 1,
-    value: "Music",
-    href: "/",
-  },
-  {
-    id: 2,
-    value: "Artists",
-    href: "/artists",
-  },
-];
+import type {Song} from "@/types";
 
 export async function getSongs(): Promise<Song[]> {
   let songs: Song[] | [] = [];
@@ -54,6 +18,7 @@ export async function getSongs(): Promise<Song[]> {
     } else {
       throw new Error("Failed to fetch songs, check json please :) and env");
     }
+    console.log(songs);
 
     return songs;
   } catch (error) {

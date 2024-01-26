@@ -1,42 +1,61 @@
 "use client";
-import type {HeaderProps} from "@/types";
+import {useState} from "react";
+import {AnimatePresence, motion} from "framer-motion";
 
-import Image from "next/image";
-import Link from "next/link";
-import {useMediaQuery} from "react-responsive";
+import Button from "./Button";
+import styles from "./style.module.scss";
+import Nav from "./Nav";
 
-import MenuItems from "./menuItems";
-import SocialMediaButtons from "./socialMediaButtons";
-
-// eslint-disable-next-line react/function-component-definition
-const MobileHeader: React.FC = () => {
-  return (
-    <div className="pl-16px pr-16px pt-21px pb-16px flex w-full items-center justify-between">
-      <h1 className="text-6xl font-extrabold leading-3">OMEN.</h1>
-      <MenuItems size="text-md" />
-      <SocialMediaButtons size={5} />
-    </div>
-  );
+const menu = {
+  open: {
+    width: "480px",
+    height: "650px",
+    top: "-25px",
+    right: "-25px",
+    transition: {duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1]},
+  },
+  closed: {
+    width: "100px",
+    height: "40px",
+    top: "0px",
+    right: "0px",
+    transition: {duration: 0.75, delay: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1]},
+  },
 };
 
-function DesktopHeader() {
+export default function Index() {
+  const [isActive, setIsActive] = useState(false);
+
   return (
-    <div className="pt-32px flex w-full items-center justify-between">
-      <Link href="/">
-        <h4 className="text-4xl">ömenrecords</h4>
-      </Link>
-      <MenuItems size="text-2xl" />
-      <SocialMediaButtons size={25} />
+    <div>
+      <div className={styles.logo}>
+        <a className="flex items-center space-x-3 rtl:space-x-reverse" href="https://flowbite.com/">
+          {/* <img
+            alt="Flowbite Logo"
+            className="h-8"
+            src="https://flowbite.com/docs/images/logo.svg"
+          /> */}
+          <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+            ømenrecords.
+          </span>
+        </a>
+      </div>
+      <div className={styles.header}>
+        <motion.div
+          animate={isActive ? "open" : "closed"}
+          className={styles.menu}
+          initial="closed"
+          variants={menu}
+        >
+          <AnimatePresence>{isActive ? <Nav /> : null}</AnimatePresence>
+        </motion.div>
+        <Button
+          isActive={isActive}
+          toggleMenu={() => {
+            setIsActive(!isActive);
+          }}
+        />
+      </div>
     </div>
-  );
-}
-
-export default function Header() {
-  const isMobile = useMediaQuery({maxWidth: "640px"});
-
-  return (
-    <header className="flex w-full max-w-full pt-8">
-      {isMobile ? <MobileHeader /> : <DesktopHeader />}
-    </header>
   );
 }

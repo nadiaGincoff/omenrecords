@@ -1,26 +1,15 @@
 "use client";
-import Lenis from "@studio-freight/lenis";
 import {useEffect} from "react";
 
-import AnimatedParagraph from "@/components/music/animatedParagraph";
-import ListOfSongs from "@/components/music/songs";
+import ListOfSongs from "@/components/releases/";
+
+import AnimatedParagraph from "@/components/releases/animatedParagraph";
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
     <main>
-      {/* <AnimatedParagraph /> */}
       <ListOfSongs />
+      {/* <AnimatedParagraph /> */}
     </main>
   );
 }

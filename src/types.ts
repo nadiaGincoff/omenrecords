@@ -1,24 +1,7 @@
-export interface SocialMediaButton {
+export interface SocialMediaButtonProps {
   id: number;
   href: string;
-}
-
-export interface HeaderProps {
-  socialMediaButtons: SocialMediaButton[];
-}
-
-export interface MenuItem {
-  id: number;
-  value: string;
-  href: string;
-}
-
-export interface SocialMediaButtonProps extends SocialMediaButton {
   size: number;
-}
-
-export interface MenuItemProps extends MenuItem {
-  size: string;
 }
 
 export interface Song {
