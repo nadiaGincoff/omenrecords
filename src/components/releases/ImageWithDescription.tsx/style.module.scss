@@ -38,8 +38,14 @@
               width: 50vh;
               z-index: 1;
           }
-
           &:nth-of-type(2){
+              left: 55vw;
+              top: 15vh;
+              height: 40vh;
+              width: 30vh;
+              z-index: 2;
+          }
+          &:nth-of-type(3){
               left: 27.5vw;
               top: 40vh;
               height: 25vh;

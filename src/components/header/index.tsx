@@ -1,6 +1,7 @@
 "use client";
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import Link from "next/link";
 
 import Button from "./Button";
 import styles from "./style.module.scss";
@@ -29,7 +30,7 @@ export default function Index() {
   return (
     <div>
       <div className={styles.logo}>
-        <a className="flex items-center space-x-3 rtl:space-x-reverse" href="https://flowbite.com/">
+        <Link className="flex items-center space-x-3 rtl:space-x-reverse" href="/">
           {/* <img
             alt="Flowbite Logo"
             className="h-8"
@@ -38,7 +39,7 @@ export default function Index() {
           <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
             ømenrecords.
           </span>
-        </a>
+        </Link>
       </div>
       <div className={styles.header}>
         <motion.div

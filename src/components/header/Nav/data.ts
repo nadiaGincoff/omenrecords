@@ -1,5 +1,3 @@
-import type {SocialMediaButton} from "@/types";
-
 export const links = [
   {
     title: "Music",
@@ -15,7 +13,7 @@ export const links = [
   },
 ];
 
-export const footerLinks: SocialMediaButton[] = [
+export const footerLinks = [
   {
     id: 1,
     href: "https://soundcloud.com/theomenrecords",

@@ -47,6 +47,7 @@
         "argsIgnorePattern": "^_.*?$"
       }
     ],
+    "@typescript-eslint/no-unsafe-assignment": "warn",
     "import/order": ["warn", {
       "pathGroups": [{
         "pattern": "~/**",

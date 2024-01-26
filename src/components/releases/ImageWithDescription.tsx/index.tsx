@@ -1,18 +1,17 @@
 "use client";
 
+import type {Release} from "@/types";
+
 import Image from "next/image";
 import {motion, useScroll, useTransform} from "framer-motion";
 import {useRef} from "react";
 
-import Picture1 from "../../../../public/medias/1.png";
-import Picture2 from "../../../../public/medias/2.png";
-import Picture3 from "../../../../public/medias/3.png";
-
 import styles from "./style.module.scss";
+interface ImageWithDescriptionProps {
+  release: Release;
+}
 
-const word = "with framer-motion";
-
-export default function ImageWithDescription({release}) {
+export default function ImageWithDescription({release}: ImageWithDescriptionProps) {
   const container = useRef(null);
 
   const {scrollYProgress} = useScroll({
@@ -20,8 +19,6 @@ export default function ImageWithDescription({release}) {
     offset: ["start end", "end start"],
   });
 
-  const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const md = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const lg = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
   const images = [
@@ -44,6 +41,7 @@ export default function ImageWithDescription({release}) {
         <div className={styles.word}>
           <p>
             {release.description.split("").map((letter, i) => {
+              // eslint-disable-next-line react-hooks/rules-of-hooks
               const y = useTransform(
                 scrollYProgress,
                 [0, 1],
@@ -64,7 +62,7 @@ export default function ImageWithDescription({release}) {
         {images.map(({src, y}, i) => {
           return (
             <motion.div key={`i_${i}`} className={styles.imageContainer} style={{y}}>
-              <Image fill alt="image" className="border border-2 border-white" src={src} />
+              <Image fill alt="image" className="border border-white" src={src} />
             </motion.div>
           );
         })}

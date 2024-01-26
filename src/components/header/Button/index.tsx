@@ -2,7 +2,12 @@ import {motion} from "framer-motion";
 
 import styles from "./style.module.scss";
 
-export default function Button({isActive, toggleMenu}) {
+interface ButtonProps {
+  isActive: boolean;
+  toggleMenu: () => void;
+}
+
+export default function Button({isActive, toggleMenu}: ButtonProps) {
   return (
     <div className={styles.button}>
       <motion.div
@@ -31,7 +36,7 @@ export default function Button({isActive, toggleMenu}) {
   );
 }
 
-function PerspectiveText({label}) {
+function PerspectiveText({label}: {label: string}) {
   return (
     <div className={styles.perspectiveText}>
       <p>{label}</p>
