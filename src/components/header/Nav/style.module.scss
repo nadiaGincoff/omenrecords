@@ -30,3 +30,19 @@
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  .nav{
+    .body{
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 32px;
+        }
+    }
+    .footer{
+      width: 100%;
+    }
+  }  
+}

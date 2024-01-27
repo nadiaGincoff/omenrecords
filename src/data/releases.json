@@ -1,24 +1,23 @@
 [
   {
     "id": 1,
-    "imageSrc": "/medias/1.png",
-    "imageTwoSrc": "/medias/1.png",
-    "imageY": "0",
-    "imageTwoY": "md",
-    "songName": "Day by Day",
-    "description": "A melodic drum and bass",
     "artistName": "CCX",
+    "imageSrc": "omen-records/releases/daybyday-ccx",
+    "songName": "Day by Day",
     "soundcloudId": "1638896376"
   },
   {
     "id": 2,
-    "songName": "No name",
-    "artistName": "CCX",
-    "soundcloudId": "1638896376",
-    "imageSrc": "/medias/2.png",
-    "imageTwoSrc": "/medias/2.png",
-    "description": "A hard neuro",
-    "imageY": "0",
-    "imageTwoY": "md"
+    "artistName": "Vectril ft. Ace",
+    "imageSrc": "omen-records/releases/rollingover-vectril_bkcvpd",
+    "songName": "Rolling Over",
+    "soundcloudId": "1679470935"
+  },
+  {
+    "id": 3,
+    "artistName": "Noised",
+    "imageSrc": "omen-records/releases/bleedingfears-noised_zrzfki",
+    "songName": "Bleeding Fears",
+    "soundcloudId": "1701196341"
   }
 ]

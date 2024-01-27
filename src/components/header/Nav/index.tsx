@@ -6,7 +6,11 @@ import {links, footerLinks} from "./data";
 import {perspective, slideIn} from "./animation";
 import SocialMediaButton from "./socialMediaButton";
 
-export default function index() {
+interface NavProps {
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Nav: React.FC<NavProps>  = ({ setIsActive }) => {
   return (
     <div className={styles.nav}>
       <div className={styles.body}>
@@ -15,15 +19,15 @@ export default function index() {
 
           return (
             <div key={`b_${i}`} className={styles.linkContainer}>
-              <motion.div
+              <motion.button
                 animate="enter"
                 custom={i}
                 exit="exit"
                 initial="initial"
                 variants={perspective}
               >
-                <Link href={href}>{title}</Link>
-              </motion.div>
+                <Link href={href} onClick={() => setIsActive(false)}>{title}</Link>
+              </motion.button>
             </div>
           );
         })}
@@ -34,7 +38,7 @@ export default function index() {
           const {id, href} = link;
 
           return (
-            <motion.a
+            <motion.button
               key={`f_${i}`}
               animate="enter"
               custom={i}
@@ -43,10 +47,13 @@ export default function index() {
               variants={slideIn}
             >
               <SocialMediaButton href={href} id={id} size={30} />
-            </motion.a>
+            </motion.button>
           );
         })}
       </motion.div>
     </div>
   );
 }
+
+
+export default Nav;

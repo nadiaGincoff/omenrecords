@@ -6,12 +6,8 @@ export interface SocialMediaButtonProps {
 
 export interface Release {
   id: number;
-  songName: string;
   artistName: string;
-  soundcloudId: string;
   imageSrc: string;
-  imageTwoSrc: string;
-  description: string;
-  imageY: string;
-  imageTwoY: string;
+  songName: string;
+  soundcloudId: string;
 }
