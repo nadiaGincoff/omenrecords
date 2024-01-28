@@ -1,11 +1,11 @@
 "use client";
 
-import ListOfSongs from "@/components/releases/";
+import About from "@/components/about";
 
 export default function Home() {
   return (
-    <main className="sm:px-0 md:px-10 lg:px-40">
-      <ListOfSongs />
-    </main>
+    <div>
+      <About />   
+    </div>
   );
 }

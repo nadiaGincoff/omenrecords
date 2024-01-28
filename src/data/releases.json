@@ -2,22 +2,33 @@
   {
     "id": 1,
     "artistName": "CCX",
-    "imageSrc": "omen-records/releases/daybyday-ccx",
+    "imageSrc": "omen-records/releases/daybyday",
     "songName": "Day by Day",
-    "soundcloudId": "1638896376"
+    "soundcloudId": "1638896376",
+    "hypedditUrl": "https://hypeddit.com/tpzm1c"
   },
   {
     "id": 2,
     "artistName": "Vectril ft. Ace",
-    "imageSrc": "omen-records/releases/rollingover-vectril_bkcvpd",
+    "imageSrc": "omen-records/releases/rollingover",
     "songName": "Rolling Over",
-    "soundcloudId": "1679470935"
+    "soundcloudId": "1679470935",
+    "hypedditUrl": "https://hypeddit.com/zgffeu"
   },
   {
     "id": 3,
     "artistName": "Noised",
-    "imageSrc": "omen-records/releases/bleedingfears-noised_zrzfki",
+    "imageSrc": "omen-records/releases/bleedingfears",
     "songName": "Bleeding Fears",
-    "soundcloudId": "1701196341"
+    "soundcloudId": "1701196341",
+    "hypedditUrl":"https://hypeddit.com/xw18uz"
+  },
+  {
+    "id": 4,
+    "artistName": "JOTAEME",
+    "imageSrc": "omen-records/releases/holdon",
+    "songName": "Hold On",
+    "soundcloudId": "1718408604",
+    "hypedditUrl":"https://hypeddit.com/ddixta"
   }
 ]

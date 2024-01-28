@@ -10,4 +10,5 @@ export interface Release {
   imageSrc: string;
   songName: string;
   soundcloudId: string;
+  hypedditUrl: string;
 }

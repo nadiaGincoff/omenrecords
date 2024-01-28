@@ -5,8 +5,8 @@ import Link from "next/link";
 import {ImSoundcloud, ImInstagram, ImMail2, ImYoutube, ImSpotify} from "react-icons/im";
 
 const socialMediaIcons: Record<number, IconType> = {
-  1: ImInstagram,
-  2: ImSoundcloud,
+  1: ImSoundcloud,
+  2: ImInstagram,
   3: ImMail2,
   4: ImYoutube,
   5: ImSpotify,

@@ -2,6 +2,7 @@
 import {useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 import Button from "./Button";
 import Nav from "./Nav";
@@ -48,17 +49,10 @@ export default function Index() {
   const isSmall = useMediaQuery('(max-width: 768px)');
   const variants = generateMenuVariants(isSmall)
   return (
-    <div>
+    <div className="h-20 md:h-32 bg-black/50 w-full fixed z-10">
       <div className={styles.logo}>
         <Link className="flex items-center space-x-3 rtl:space-x-reverse" href="/">
-          {/* <img
-            alt="Flowbite Logo"
-            className="h-8"
-            src="https://flowbite.com/docs/images/logo.svg"
-          /> */}
-          <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-            ømenrecords.
-          </span>
+          <Image src="/assets/logo.png" alt="logo" width={isSmall ? 60 : 100} height={isSmall ? 60 : 100} />
         </Link>
       </div>
       <div className={styles.header}>
