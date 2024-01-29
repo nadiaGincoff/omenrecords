@@ -1,4 +1,3 @@
-
 import ListOfSongs from "@/components/releases/";
 
 export default function Home() {
