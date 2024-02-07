@@ -1,11 +1,15 @@
 "use client";
 
-import About from "@/components/about";
+import Paragraph from "@/components/about/Paragraph";
+import TitleAndDescription from "@/components/about/TitleWithDescription";
+import Contact from "@/components/about/Contact";
 
 export default function Home() {
   return (
-    <div>
-      <About />
-    </div>
+    <main className="w-full flex-col">
+      <TitleAndDescription />
+      <Paragraph />
+      <Contact />
+    </main>
   );
 }

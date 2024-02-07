@@ -1,24 +1,80 @@
-'use client'
+"use client";
 
-import React from 'react';
-import about from '@/data/about.json';
-import { CldImage } from "next-cloudinary";
+import React, {useEffect} from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import {CldImage} from "next-cloudinary";
+import {motion} from "framer-motion";
 
-export default function TitleAndDescription() {
+import about from "@/data/about.json";
+
+import styles from "./style.module.css";
+
+function BackgroundImage() {
   return (
-    <section className='text-center flex min-h-screen items-center justify-center relative'>
-      <div className='absolute lg:top-1/3 h-100 flex flex-col gap-7 w-full items-center px-5'>
-        <h1 className='text-[10vw] leading-10 font-bold md:text-9xl w-2/4 uppercase'>{about.name}.</h1>
-        <h2 className='text-1xl md:text-3xl uppercase box-sizing'>{about.description}</h2>
-      </div>
+    <div className={styles.backgroundVideo}>
       <CldImage
         priority
-        alt="release image"
-        height="300"
+        alt="background image"
+        className="sticky top-0 h-screen w-full object-cover"
+        height="100"
         src={about.backgroundImagePath}
-        width="1240"
-        opacity={70}
+        width="2048"
       />
-    </section>
+    </div>
+  );
+}
+
+export default function TitleAndDescription() {
+  useEffect(() => {
+    if (!CSS.supports("animation-timeline: scroll()")) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to("header", {
+        scale: 0.8,
+        ease: "power1.in",
+        scrollTrigger: {
+          trigger: "header",
+          scrub: true,
+          start: "center top",
+          end: "bottom top",
+        },
+      });
+      gsap.set("header", {"--opacity": 1});
+      gsap.to("header", {
+        "--opacity": 0,
+        ease: "power1.in",
+        scrollTrigger: {
+          trigger: "header",
+          scrub: true,
+          start: "center bottom",
+          end: "bottom bottom",
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <div className={styles.titleWithDescriptionContainer}>
+      <BackgroundImage />
+      <section>
+        <motion.h1
+          animate={{opacity: 1, y: 0}}
+          className="flex flex-col text-center text-4xl font-semibold uppercase md:text-8xl lg:text-7xl xl:text-9xl"
+          initial={{opacity: 0, y: -100}}
+          transition={{duration: 0.3}}
+        >
+          <span>omen </span>
+          <span>records.</span>
+        </motion.h1>
+        <motion.h2
+          animate={{opacity: 1, y: 0}}
+          className="text-1xl box-sizing px-5 text-center font-thin uppercase md:text-3xl"
+          initial={{opacity: 0, y: -100}}
+          transition={{duration: 0.5}}
+        >
+          {about.description}
+        </motion.h2>
+      </section>
+    </div>
   );
 }

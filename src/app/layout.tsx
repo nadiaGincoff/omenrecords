@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import {GeistSans} from "geist/font/sans";
+import {GeistMono} from "geist/font/mono";
 
 import "./globals.css";
 import Header from "@/components/header";
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="dark flex min-h-screen w-full justify-between flex-col">
+    <html className={`${GeistSans.variable} ${GeistMono.variable}`} lang="en">
+      <body className="dark flex min-h-screen w-full flex-col justify-between bg-background">
         <Header />
-        <main className="py-8">{children}</main>
-        <footer className="text-center leading-[4rem] opacity-70 mt-20">
+        <main>{children}</main>
+        {/* <footer className="mt-20 text-center leading-[4rem] opacity-70">
           © {new Date().getFullYear()} Nvis
-        </footer>
+        </footer> */}
       </body>
     </html>
   );

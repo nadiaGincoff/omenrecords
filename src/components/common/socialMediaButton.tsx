@@ -17,7 +17,10 @@ export default function SocialMediaButton({id, href, size}: SocialMediaButtonPro
 
   return (
     <Link passHref href={href}>
-      <IconComponent className="transform transition-transform hover:translate-x-1" size={size} />
+      <IconComponent
+        className="pointer transform text-background transition-transform hover:translate-x-1"
+        size={size}
+      />
     </Link>
   );
 }

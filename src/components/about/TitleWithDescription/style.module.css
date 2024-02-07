@@ -1,0 +1,64 @@
+.titleWithDescriptionContainer {
+  min-height: 100vh;
+}
+
+.backgroundVideo {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+.titleWithDescriptionContainer > section {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  translate: 0 -100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+.titleWithDescriptionContainer > section::before {
+  content: "";
+  position: absolute;
+  inset: -100% 0 -100% 0;
+  background: hsl(0 0% 6% / 0.7);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@layer scrolls {
+@supports (animation-timeline: scroll()) {
+  .titleWithDescriptionContainer {
+    transform-origin: 50% 0%;
+    animation: scale-down both ease-in;
+    animation-timeline: view();
+    animation-range: exit;
+    view-timeline: --header;
+  }
+
+  @keyframes scale-down {
+    to {
+      scale: 0.1 0.1;
+    }
+  }
+
+  .titleWithDescriptionContainer > section::before {
+    animation: fade both linear;
+    animation-timeline: --header;
+    animation-range: exit-crossing 0% exit 0%;
+  }
+
+  @keyframes fade {
+    to {
+      opacity: 0;
+    }
+  }
+}
+}
+

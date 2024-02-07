@@ -1,32 +1,36 @@
 import {motion} from "framer-motion";
 import Link from "next/link";
 
+import {navBarLinks, socialMediaLinks} from "@/data/links";
+import SocialMediaButton from "@/components/common/socialMediaButton";
+
 import styles from "./style.module.scss";
-import {links, footerLinks} from "./data";
 import {perspective, slideIn} from "./animation";
-import SocialMediaButton from "./socialMediaButton";
 
 interface NavProps {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Nav: React.FC<NavProps>  = ({ setIsActive }) => {
+const Nav: React.FC<NavProps> = ({setIsActive}) => {
   return (
     <div className={styles.nav}>
       <div className={styles.body}>
-        {links.map((link, i) => {
+        {navBarLinks.map((link, i) => {
           const {title, href} = link;
 
           return (
             <div key={`b_${i}`} className={styles.linkContainer}>
               <motion.button
                 animate="enter"
+                className="uppercase"
                 custom={i}
                 exit="exit"
                 initial="initial"
                 variants={perspective}
               >
-                <Link href={href} onClick={() => setIsActive(false)}>{title}</Link>
+                <Link href={href} onClick={() => setIsActive(false)}>
+                  {title}
+                </Link>
               </motion.button>
             </div>
           );
@@ -34,7 +38,7 @@ const Nav: React.FC<NavProps>  = ({ setIsActive }) => {
       </div>
 
       <motion.div className={styles.footer}>
-        {footerLinks.map((link, i) => {
+        {socialMediaLinks.map((link, i) => {
           const {id, href} = link;
 
           return (
@@ -53,7 +57,6 @@ const Nav: React.FC<NavProps>  = ({ setIsActive }) => {
       </motion.div>
     </div>
   );
-}
-
+};
 
 export default Nav;
