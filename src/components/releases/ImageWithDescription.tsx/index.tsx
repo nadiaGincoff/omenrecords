@@ -1,34 +1,35 @@
 "use client";
+import type {Release} from "@/types";
+
 import Link from "next/link";
 import {useRef} from "react";
-import { CldImage } from 'next-cloudinary';
+import {CldImage} from "next-cloudinary";
 import {motion, useScroll, useTransform} from "framer-motion";
 
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import type {Release} from "@/types";
+import {useMediaQuery} from "@/hooks/useMediaQuery";
 
 import styles from "./style.module.scss";
 interface ImageWithDescriptionProps {
   release: Release;
+  index: number;
 }
 
 function SoundcloudEmberPlayer({soundcloudId}: {soundcloudId: string}) {
   return (
     <div className="py-10">
-      <iframe 
-        title={soundcloudId}
-        id="soundcloud"
-        height="100" 
-        width="100%"
+      <iframe
         className="soundcloud"
-        src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${soundcloudId}&amp;color=4d7c0f&show_artwork=false&single_active=true&show_playcount=false&show_user=false`} 
-      >
-      </iframe>
+        height="100"
+        id="soundcloud"
+        src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${soundcloudId}&amp;color=4d7c0f&show_artwork=false&single_active=true&show_playcount=false&show_user=false`}
+        title={soundcloudId}
+        width="100%"
+      />
     </div>
-  )
+  );
 }
 
-export default function ImageWithDescription({release}: ImageWithDescriptionProps) {
+export default function ImageWithDescription({release, index}: ImageWithDescriptionProps) {
   const container = useRef(null);
 
   const {scrollYProgress} = useScroll({
@@ -50,7 +51,22 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
   ];
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      initial={{
+        opacity: 0,
+        // if odd index card,slide from right instead of left
+        x: index % 2 === 0 ? 50 : -50,
+      }}
+      viewport={{once: true}}
+      whileInView={{
+        opacity: 1,
+        x: 0, // Slide in to its original position
+        transition: {
+          duration: 1, // Animation duration
+        },
+      }}
+    >
       <div className={styles.body}>
         <h1>{release.songName}</h1>
         <div>
@@ -64,7 +80,7 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
               );
 
               return (
-                <motion.span className="hover:text-lime-100" key={`l_${i}`} style={{top: y}}>
+                <motion.span key={`l_${i}`} className="hover:text-lime-100" style={{top: y}}>
                   {letter}
                 </motion.span>
               );
@@ -72,7 +88,9 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
           </h2>
         </div>
         <Link href={release.hypedditUrl}>
-          <h3 className="transform transition-transform hover:translate-x-1 hover:text-lime-700">Buy / Stream</h3>
+          <h3 className="transform transition-transform hover:translate-x-1 hover:text-lime-700">
+            Buy / Stream
+          </h3>
         </Link>
         <SoundcloudEmberPlayer soundcloudId={release.soundcloudId} />
       </div>
@@ -94,6 +112,6 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -4,11 +4,11 @@ import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+import {useMediaQuery} from "@/hooks/useMediaQuery";
+
 import Button from "./Button";
 import Nav from "./Nav";
-
 import styles from "./style.module.scss";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 function generateMenuVariants(isSmall: boolean) {
   const variants = {
@@ -20,39 +20,44 @@ function generateMenuVariants(isSmall: boolean) {
       right: "0px",
       transition: {duration: 0.2, delay: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1]},
     },
-  }
+  };
 
   if (isSmall) {
-      variants.open = {
-        width: "320px", 
-        height:"450px",
-        top: "-25px",
-        right: "-25px",
-        transition: {duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1]},
-      }
-  } else {
     variants.open = {
-      width: "480px", 
-      height:"650px",
+      width: "320px",
+      height: "450px",
       top: "-25px",
       right: "-25px",
       transition: {duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1]},
-    }
+    };
+  } else {
+    variants.open = {
+      width: "480px",
+      height: "650px",
+      top: "-25px",
+      right: "-25px",
+      transition: {duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1]},
+    };
   }
 
-  return variants
-};
-
+  return variants;
+}
 
 export default function Index() {
   const [isActive, setIsActive] = useState(false);
-  const isSmall = useMediaQuery('(max-width: 768px)');
-  const variants = generateMenuVariants(isSmall)
+  const isSmall = useMediaQuery("(max-width: 768px)");
+  const variants = generateMenuVariants(isSmall);
+
   return (
-    <div className="h-20 md:h-32 bg-black/50 w-full fixed z-10">
+    <div className="fixed z-10 h-20 w-full md:h-32">
       <div className={styles.logo}>
         <Link className="flex items-center space-x-3 rtl:space-x-reverse" href="/">
-          <Image src="/assets/logo.png" alt="logo" width={isSmall ? 60 : 100} height={isSmall ? 60 : 100} />
+          <Image
+            alt="logo"
+            height={isSmall ? 45 : 100}
+            src="/assets/logo.png"
+            width={isSmall ? 45 : 100}
+          />
         </Link>
       </div>
       <div className={styles.header}>

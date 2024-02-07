@@ -8,6 +8,9 @@
     height: 650px;
     background-color: white;
     border-radius: 25px;
+    -webkit-box-shadow: -12px 10px 38px -13px rgba(0,0,0,0.3);
+    -moz-box-shadow: -12px 10px 38px -13px rgba(0,0,0,0.3);
+    box-shadow: -12px 10px 38px -13px rgba(0,0,0,0.3);
     position: relative;
   }
 }
@@ -15,8 +18,8 @@
 .logo {
   z-index: 4;
   position: fixed;
-  left: 30px;
-  top: 30px;
+  left: 25px;
+  top: 25px;
 }
 
 @media (max-width: 768px) {

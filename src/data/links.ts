@@ -1,4 +1,4 @@
-export const links = [
+export const navBarLinks = [
   {
     title: "Music",
     href: "/music",
@@ -13,7 +13,7 @@ export const links = [
   },
 ];
 
-export const footerLinks = [
+export const socialMediaLinks = [
   {
     id: 1,
     href: "https://soundcloud.com/theomenrecords",
