@@ -1,8 +1,8 @@
-import ListOfSongs from "@/components/releases/";
+import ListOfSongs from "./_components";
 
 export default function Home() {
   return (
-    <main className="sm:px-0 md:px-10 lg:px-40">
+    <main className="md:px-10 lg:px-40">
       <ListOfSongs />
     </main>
   );

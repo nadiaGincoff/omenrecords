@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 
 import about from "@/data/about.json";
 import {socialMediaLinks} from "@/data/links";
-import SocialMediaButton from "@/components/common/socialMediaButton";
+import SocialMediaButton from "@/components/socialMediaButton";
 
 import ContactForm from "./contactForm";
 

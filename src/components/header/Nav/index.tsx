@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 
 import {navBarLinks, socialMediaLinks} from "@/data/links";
-import SocialMediaButton from "@/components/common/socialMediaButton";
+import SocialMediaButton from "@/components/socialMediaButton";
 
 import styles from "./style.module.scss";
 import {perspective, slideIn} from "./animation";

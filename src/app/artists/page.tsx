@@ -1,3 +1,7 @@
+import ListOfArtists from './_components'
+
 export default function Page() {
-  return <div>artists</div>;
+  return (<div>
+    <ListOfArtists />
+  </div>);
 }

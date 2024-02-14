@@ -1,3 +1,5 @@
+import type mongoose from "mongoose";
+
 export interface SocialMediaButtonProps {
   id: number;
   href: string;
@@ -5,7 +7,7 @@ export interface SocialMediaButtonProps {
 }
 
 export interface Release {
-  id: number;
+  id: string | mongoose.Types.ObjectId;
   artistName: string;
   imageSrc: string;
   songName: string;
