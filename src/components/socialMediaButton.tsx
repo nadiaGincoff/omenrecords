@@ -7,18 +7,18 @@ import {ImSoundcloud, ImInstagram, ImMail2, ImYoutube, ImSpotify} from "react-ic
 const socialMediaIcons: Record<number, IconType> = {
   1: ImSoundcloud,
   2: ImInstagram,
-  3: ImMail2,
+  3: ImSpotify,
   4: ImYoutube,
-  5: ImSpotify,
+  5: ImMail2,
 };
 
-export default function SocialMediaButton({id, href, size}: SocialMediaButtonProps) {
+export default function SocialMediaButton({id, href, size, color}: SocialMediaButtonProps) {
   const IconComponent = socialMediaIcons[id];
 
   return (
     <Link passHref href={href}>
       <IconComponent
-        className="pointer transform text-background transition-transform hover:translate-x-1"
+        className={`text-${color} pointer transform text-background transition-transform hover:translate-x-1`}
         size={size}
       />
     </Link>

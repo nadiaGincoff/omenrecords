@@ -6,12 +6,9 @@ import {useRef} from "react";
 import {CldImage} from "next-cloudinary";
 import {motion, useScroll, useTransform} from "framer-motion";
 
-import {useMediaQuery} from "@/hooks/useMediaQuery";
-
 import styles from "./style.module.scss";
 interface ImageWithDescriptionProps {
   release: Release;
-  index: number;
 }
 
 function SoundcloudEmberPlayer({soundcloudId}: {soundcloudId: string}) {
@@ -29,7 +26,7 @@ function SoundcloudEmberPlayer({soundcloudId}: {soundcloudId: string}) {
   );
 }
 
-export default function ImageWithDescription({release, index}: ImageWithDescriptionProps) {
+export default function ImageWithDescription({release}: ImageWithDescriptionProps) {
   const container = useRef(null);
 
   const {scrollYProgress} = useScroll({
@@ -56,7 +53,7 @@ export default function ImageWithDescription({release, index}: ImageWithDescript
       initial={{
         opacity: 0,
         // if odd index card,slide from right instead of left
-        x: index % 2 === 0 ? 50 : -50,
+        x: -50,
       }}
       viewport={{once: true}}
       whileInView={{
@@ -70,25 +67,27 @@ export default function ImageWithDescription({release, index}: ImageWithDescript
       <div className={styles.body}>
         <h1>{release.songName}</h1>
         <div>
-          <h2>
-            {release.artistName.split("").map((letter, i) => {
-              // eslint-disable-next-line react-hooks/rules-of-hooks
-              const y = useTransform(
-                scrollYProgress,
-                [0, 1],
-                [0, Math.floor(Math.random() * -30) - 10],
-              );
+          <Link href={`../artists/${release.artistName}`}>
+            <h2>
+              {release.artistName.split("").map((letter, i) => {
+                // eslint-disable-next-line react-hooks/rules-of-hooks
+                const y = useTransform(
+                  scrollYProgress,
+                  [0, 1],
+                  [0, Math.floor(Math.random() * -10) - 10],
+                );
 
-              return (
-                <motion.span key={`l_${i}`} className="hover:text-lime-100" style={{top: y}}>
-                  {letter}
-                </motion.span>
-              );
-            })}
-          </h2>
+                return (
+                  <motion.span key={`l_${i}`} className="hover:text-lime-100" style={{top: y}}>
+                    {letter}
+                  </motion.span>
+                );
+              })}
+            </h2>
+          </Link>
         </div>
         <Link href={release.hypedditUrl}>
-          <h3 className="transform transition-transform hover:translate-x-1 hover:text-lime-700">
+          <h3 className="transform transition-transform hover:translate-x-1 hover:text-red-700">
             Buy / Stream
           </h3>
         </Link>

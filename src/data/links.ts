@@ -24,7 +24,7 @@ export const socialMediaLinks = [
   },
   {
     id: 3,
-    href: "https://www.gmail.com/",
+    href: "https://www.spotify.com/",
   },
   {
     id: 4,
@@ -32,6 +32,6 @@ export const socialMediaLinks = [
   },
   {
     id: 5,
-    href: "https://www.spotify.com/",
+    href: "https://www.gmail.com/",
   },
 ];
