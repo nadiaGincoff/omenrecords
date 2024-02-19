@@ -16,10 +16,10 @@
 }
 
 .logo {
-  z-index: 4;
+  z-index: 3;
   position: fixed;
-  left: 25px;
-  top: 25px;
+  left: 20px;
+  top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -28,7 +28,7 @@
     top: 25px;
   }
   .logo {
-    left: 15px;
+    left: 12.5px;
     top: 15px;
   }  
 }

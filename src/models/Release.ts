@@ -6,10 +6,12 @@ import {ModelOptions, Severity, getModelForClass, index, post, prop} from "@type
   if (doc) {
     doc.id = doc._id.toString();
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     doc._id = doc.id;
   }
 })
 @post<ReleaseClass[]>(/^find/, function (docs) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
 
   if (this.op === "find") {

@@ -1,7 +1,6 @@
-import { Artist } from "@/models/Artist";
+import {Artist} from "@/models/Artist";
 
 import connectDB from "./connect-db";
-import {stringToObjectId} from "./utils";
 
 interface ArtistFilter {
   page?: number;
@@ -30,17 +29,11 @@ export async function getArtists(filter: ArtistFilter = {}) {
   }
 }
 
-export async function getArtist(id: string) {
+export async function getArtist(name: string) {
   try {
     await connectDB();
 
-    const parsedId = stringToObjectId(id);
-
-    if (!parsedId) {
-      return {error: "Artist not found"};
-    }
-
-    const artist = await Artist.findById(parsedId).lean().exec();
+    const artist = await Artist.findOne({name}).lean().exec();
 
     if (artist) {
       return {

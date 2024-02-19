@@ -42,7 +42,7 @@ async function connectDB() {
 
     cached.promise = connect(MONGODB_URI!, opts)
       .then((mongoose) => {
-        console.log("✅ New connection established", mongoose);
+        console.log("✅ New connection established", mongoose.version);
 
         return mongoose;
       })

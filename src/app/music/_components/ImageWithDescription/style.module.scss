@@ -6,6 +6,9 @@
   margin-top: 25vh;
   justify-content: center;
   gap: 2vw;
+  padding-right: 10vw;
+  padding-left: 10vw;
+
   .body {
     width: 50%;
     h1 {
@@ -21,7 +24,7 @@
       margin: 0px;
       font-size: 5vw;
       line-height: 6vw;
-      margin-bottom: 5vh;
+      margin-bottom: 1vh;
       span {
           position: relative;
       }
@@ -65,7 +68,9 @@
     align-items: self-end;
     justify-content: start;
     margin-bottom: 15vh;
-    margin-top: 5vh;
+    margin-top: 10vh;
+    padding-right: 2vw;
+    padding-left: 2vw;
     .body {
       width: 100%;
       h1 {

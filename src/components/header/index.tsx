@@ -50,16 +50,14 @@ export default function Index() {
 
   return (
     <div className="fixed z-10 h-20 w-full md:h-32">
-      <div className={styles.logo}>
-        <Link className="flex items-center space-x-3 rtl:space-x-reverse" href="/">
-          <Image
-            alt="logo"
-            height={isSmall ? 45 : 100}
-            src="/assets/logo.png"
-            width={isSmall ? 45 : 100}
-          />
-        </Link>
-      </div>
+      <Link className={`${styles.logo} flex items-center space-x-3 rtl:space-x-reverse`} href="/">
+        <Image
+          alt="logo"
+          height={isSmall ? 60 : 100}
+          src="/assets/logo.png"
+          width={isSmall ? 60 : 100}
+        />
+      </Link>
       <div className={styles.header}>
         <motion.div
           animate={isActive ? "open" : "closed"}

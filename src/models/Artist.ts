@@ -6,10 +6,12 @@ import {ModelOptions, Severity, getModelForClass, index, post, prop} from "@type
   if (doc) {
     doc.id = doc._id.toString();
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     doc._id = doc.id;
   }
 })
 @post<ArtistClass[]>(/^find/, function (docs) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
 
   if (this.op === "find") {
@@ -42,7 +44,16 @@ class ArtistClass {
   isActive: boolean;
 
   @prop({required: true})
-  soundcloudId: string;
+  soundcloudUrl: string;
+
+  @prop({required: true})
+  instagramUrl: string;
+
+  @prop({required: true})
+  spotifyUrl: string;
+
+  @prop({required: true})
+  biography: string;
 
   _id: mongoose.Types.ObjectId | string;
 

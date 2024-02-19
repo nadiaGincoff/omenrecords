@@ -17,9 +17,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <body className="dark flex min-h-screen w-full flex-col justify-between bg-background">
         <Header />
         <main>{children}</main>
-        {/* <footer className="mt-20 text-center leading-[4rem] opacity-70">
-          © {new Date().getFullYear()} Nvis
-        </footer> */}
+        <footer className="text-center leading-[4rem] opacity-70">
+          © {new Date().getFullYear()} All Rights Reserved.
+        </footer>
       </body>
     </html>
   );

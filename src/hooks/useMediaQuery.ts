@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 const getMatches = (query: string): boolean => {
   // Prevents SSR issues
@@ -10,13 +10,13 @@ const getMatches = (query: string): boolean => {
 };
 
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState<boolean>(getMatches(query))
+  const [matches, setMatches] = useState<boolean>(getMatches(query));
 
   useEffect(() => {
     /** Handles the change event of the media query. */
     function handleChange() {
-      setMatches(getMatches(query))
-    };
+      setMatches(getMatches(query));
+    }
 
     const matchMedia = window.matchMedia(query);
 
@@ -27,17 +27,17 @@ export function useMediaQuery(query: string): boolean {
     if (matchMedia.addListener) {
       matchMedia.addListener(handleChange);
     } else {
-      matchMedia.addEventListener('change', handleChange);
+      matchMedia.addEventListener("change", handleChange);
     }
 
     return () => {
       if (matchMedia.removeListener) {
         matchMedia.removeListener(handleChange);
       } else {
-        matchMedia.removeEventListener('change', handleChange);
+        matchMedia.removeEventListener("change", handleChange);
       }
-    }
-  }, [query])
+    };
+  }, [query]);
 
-  return matches
-};
+  return matches;
+}

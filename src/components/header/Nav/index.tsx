@@ -11,7 +11,7 @@ interface NavProps {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Nav: React.FC<NavProps> = ({setIsActive}) => {
+function Nav({setIsActive}: NavProps) {
   return (
     <div className={styles.nav}>
       <div className={styles.body}>
@@ -50,13 +50,13 @@ const Nav: React.FC<NavProps> = ({setIsActive}) => {
               initial="initial"
               variants={slideIn}
             >
-              <SocialMediaButton href={href} id={id} size={30} />
+              <SocialMediaButton color="background" href={href} id={id} size={30} />
             </motion.button>
           );
         })}
       </motion.div>
     </div>
   );
-};
+}
 
 export default Nav;

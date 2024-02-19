@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 "use client";
@@ -16,7 +17,7 @@ function SubmitButton() {
   return (
     <motion.button
       aria-disabled={pending}
-      className="flex flex-row items-center rounded-full bg-black px-5 py-2 text-white"
+      className="flex flex-row items-center rounded-full bg-background px-5 py-2 text-white"
       type="submit"
       whileHover={{scale: 1.02}}
       whileTap={{scale: 0.9}}
@@ -52,7 +53,7 @@ export default function ContactForm() {
   const [result, setResult] = useState<boolean | string>(false);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [rawData, setFormData] = useState<TFormData>({
+  const [rawData, setRawData] = useState<TFormData>({
     accessKey: ACCESS_KEY,
     name: "",
     email: "",
@@ -76,14 +77,13 @@ export default function ContactForm() {
       if (res.success) {
         setResult(res.success);
         setLoading(false);
-        setFormData({
+        setRawData({
           accessKey: ACCESS_KEY,
           name: "",
           email: "",
           message: "",
         });
       } else {
-        console.log("Error", res);
         setLoading(false);
         setError(res.message);
       }
@@ -95,7 +95,7 @@ export default function ContactForm() {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target;
 
-    setFormData((prevData) => ({
+    setRawData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -114,7 +114,7 @@ export default function ContactForm() {
           <input
             required
             className="text-1xl block w-full rounded-xl border border-background bg-transparent p-2.5 ps-5 font-thin text-background placeholder-background lg:text-2xl"
-            id="input-group-1"
+            id="name"
             name="name"
             placeholder="NAME"
             type="text"
@@ -126,7 +126,7 @@ export default function ContactForm() {
           <input
             required
             className="text-1xl block w-full rounded-xl border border-background bg-transparent p-2.5 ps-5 font-thin text-background placeholder-background lg:text-2xl"
-            id="input-group-1"
+            id="email"
             name="email"
             placeholder="EMAIL"
             type="email"

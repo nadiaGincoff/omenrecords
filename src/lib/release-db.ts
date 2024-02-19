@@ -40,8 +40,7 @@ export async function getRelease(id: string) {
     if (!parsedId) {
       return {error: "Release not found"};
     }
-
-    const release = await Release.findById(parsedId).lean().exec();
+    const release = await Release.findOne({_id: id}).lean().exec();
 
     if (release) {
       return {

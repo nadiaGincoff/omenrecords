@@ -4,6 +4,7 @@ export interface SocialMediaButtonProps {
   id: number;
   href: string;
   size: number;
+  color: string;
 }
 
 export interface Release {
@@ -13,4 +14,15 @@ export interface Release {
   songName: string;
   soundcloudId: string;
   hypedditUrl: string;
+}
+
+export interface Artist {
+  name: string | undefined;
+  imageSrc: string | undefined;
+  isActive: boolean | undefined;
+  soundcloudUrl: string | undefined;
+  instagramUrl: string | undefined;
+  spotifyUrl: string | undefined;
+  id: string | mongoose.Types.ObjectId;
+  biography: string;
 }
