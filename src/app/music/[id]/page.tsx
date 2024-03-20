@@ -1,4 +1,7 @@
+import {Suspense} from "react";
+
 import {getRelease} from "@/lib/release-db";
+import Loading from "@/app/loading";
 
 import ImageWithDescription from "../_components/ImageWithDescription";
 
@@ -11,12 +14,14 @@ export default async function ReleasePage({params: {id}}: {params: {id: string}}
 
   return (
     <div className="max-w-screen·flex-col px-5 md:px-20">
-      {error || !release ? (
-        <p className="text-center">No Artist Found</p>
-      ) : (
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        <ImageWithDescription release={plainData} />
-      )}
+      <Suspense fallback={<Loading />}>
+        {error || !release ? (
+          <p className="text-center">No Artist Found</p>
+        ) : (
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          <ImageWithDescription release={plainData} />
+        )}
+      </Suspense>
     </div>
   );
 }

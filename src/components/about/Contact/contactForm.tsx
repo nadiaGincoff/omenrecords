@@ -9,7 +9,7 @@ import {useFormStatus} from "react-dom";
 import {motion} from "framer-motion";
 
 import about from "@/data/about.json";
-const ACCESS_KEY = process.env.ACCESS_KEY_FOR_MAILING || "";
+const ACCESS_KEY = process.env.ACCESS_KEY_FOR_MAILING ?? "";
 
 function SubmitButton() {
   const {pending} = useFormStatus();

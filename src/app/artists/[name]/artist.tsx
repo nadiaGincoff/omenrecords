@@ -1,7 +1,6 @@
 "use client";
 import type {Artist} from "@/types";
 
-import {Suspense} from "react";
 import {CldImage} from "next-cloudinary";
 import {motion} from "framer-motion";
 
@@ -34,25 +33,23 @@ export default function Artist({artist}: {artist: Artist}) {
       }}
     >
       <aside className="relative w-full md:w-1/2">
-        <Suspense fallback="...loading">
-          <CldImage
-            alt={artist.name || ""}
-            className="artistImage aspect-[700/500] max-w-full object-cover transition duration-500 ease-in-out"
-            height="500"
-            src={artist.imageSrc || ""}
-            width="600"
-          />
-          {isSmall ? (
-            <>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background opacity-100" />
-              <div className="absolute inset-x-0 bottom-0 py-1 text-center text-white">
-                <p className="flex flex-col text-center text-4xl font-thin uppercase md:text-5xl">
-                  {artist.name}
-                </p>
-              </div>
-            </>
-          ) : null}
-        </Suspense>
+        <CldImage
+          alt={artist.name || ""}
+          className="artistImage aspect-[700/500] max-w-full object-cover transition duration-500 ease-in-out"
+          height="500"
+          src={artist.imageSrc || ""}
+          width="600"
+        />
+        {isSmall ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background opacity-100" />
+            <div className="absolute inset-x-0 bottom-0 py-1 text-center text-white">
+              <p className="flex flex-col text-center text-4xl font-thin uppercase md:text-5xl">
+                {artist.name}
+              </p>
+            </div>
+          </>
+        ) : null}
       </aside>
       <aside className="flex flex-col gap-7 p-5 md:w-1/2">
         {!isSmall ? (
