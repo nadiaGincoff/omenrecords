@@ -1,3 +1,5 @@
+import {Suspense} from "react";
+
 import {getArtists} from "@/lib/artist-db";
 import {SubtitleHeader} from "@/components/subtitleHeader";
 
