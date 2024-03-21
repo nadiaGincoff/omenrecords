@@ -3,10 +3,12 @@ import {SubtitleHeader} from "@/components/subtitleHeader";
 
 import ArtworkWithName from "./_components/artworkWithName";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const {releases, results} = await getReleases();
 
-  console.log(releases, results, "get releases ===============");
+  console.log(releases, results, "get releases =========v======");
 
   return (
     <section className="mt-20 flex min-h-screen w-full flex-col items-center justify-start md:gap-32">
