@@ -9,6 +9,7 @@ export default async function ReleasePage({params: {id}}: {params: {id: string}}
   const {release, error} = await getRelease(id);
 
   const plainDataString = JSON.stringify(release); // Convert to JSON string
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const plainData = JSON.parse(plainDataString);
 

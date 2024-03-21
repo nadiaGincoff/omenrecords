@@ -1,6 +1,7 @@
 import {Suspense} from "react";
 
 import {getArtist} from "@/lib/artist-db";
+import LoadingPage from "@/app/loading";
 
 import Artist from "./artist";
 
@@ -13,7 +14,7 @@ export default async function ArtistPage({params: {name}}: {params: {name: strin
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    <Suspense fallback={<p>Loading artist...</p>}>
+    <Suspense fallback={<LoadingPage />}>
       {error ? <p className="text-center">No Artist Found</p> : <Artist artist={plainData} />}
     </Suspense>
   );
