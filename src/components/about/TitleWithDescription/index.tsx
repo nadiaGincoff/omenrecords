@@ -56,8 +56,8 @@ export default function TitleAndDescription() {
   return (
     <div className={styles.titleWithDescriptionContainer}>
       <BackgroundImage />
-      <section>
-        <motion.h1
+      {/* <section> */}
+        {/* <motion.h1
           animate={{opacity: 1, y: 0}}
           className="flex flex-col text-center text-4xl font-semibold uppercase md:text-8xl lg:text-7xl xl:text-9xl"
           initial={{opacity: 0, y: -100}}
@@ -74,7 +74,7 @@ export default function TitleAndDescription() {
         >
           {about.description}
         </motion.h2>
-      </section>
+      </section> */}
     </div>
   );
 }

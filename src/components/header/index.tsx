@@ -53,9 +53,9 @@ export default function Index() {
       <Link className={`${styles.logo} flex items-center space-x-3 rtl:space-x-reverse`} href="/">
         <Image
           alt="logo"
-          height={isSmall ? 60 : 100}
+          height={isSmall ? 57 : 100}
           src="/assets/logo.png"
-          width={isSmall ? 60 : 100}
+          width={isSmall ? 57 : 100}
         />
       </Link>
       <div className={styles.header}>

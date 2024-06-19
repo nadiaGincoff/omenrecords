@@ -26,7 +26,7 @@ const Word: React.FC<WordProps> = ({children, progress, range}) => {
 };
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, react/function-component-definition
 const Paragraph: React.FC = () => {
-  const paragraph = about.paragraph;
+  const paragraph = about.paragraph.toUpperCase();
 
   const container = useRef<HTMLParagraphElement>(null);
   const {scrollYProgress} = useScroll({

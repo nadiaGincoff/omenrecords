@@ -1,0 +1,30 @@
+.main {
+  margin-bottom: 30vh;
+}
+
+.container {
+  position: relative;
+  height: 200vh;
+  background-color: hsl(var(--primary));
+}
+
+.stickyMask {
+  display: flex;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  mask-image: url('/assets/omenrecords.svg');
+  mask-position: 50% center;
+  mask-repeat: no-repeat;
+  mask-size: 80%;
+}
+
+.stickyMask video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+

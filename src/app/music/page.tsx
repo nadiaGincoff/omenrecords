@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <section className="mt-20 flex min-h-screen w-full flex-col items-center justify-start md:gap-32">
-      <SubtitleHeader subtitle="Music" />
+      <SubtitleHeader subtitle="Music " />
       {results === 0 ? (
         <p className="text-center">No releases found</p>
       ) : (

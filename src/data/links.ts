@@ -7,9 +7,9 @@ export const navBarLinks = [
     title: "Artists",
     href: "/artists",
   },
-  {
-    title: "About",
-    href: "/",
+  { 
+    title: "Contact", 
+    href: "/#contact" 
   },
 ];
 
