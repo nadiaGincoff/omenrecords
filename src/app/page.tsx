@@ -7,7 +7,7 @@ import Contact from "@/components/about/Contact";
 import styles from './page.module.css'
 
 export default function Home() {
-
+  
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
@@ -31,7 +31,7 @@ export default function Home() {
   const animate = () => {
     const maskSizeProgress = targetMaskSize * getScrollProgress();
     if (stickyMask.current) {
-      stickyMask.current.style.webkitMaskSize = (initialMaskSize + maskSizeProgress) * 100 + "%";
+      stickyMask.current.style.maskSize = (initialMaskSize + maskSizeProgress) * 100 + "%";
       requestAnimationFrame(animate);
     }
   };
@@ -54,9 +54,10 @@ export default function Home() {
       <main className={styles.main}>
         <div ref={container} className={styles.container}>
           <div ref={stickyMask} className={styles.stickyMask}>
-            <video autoPlay muted loop>
+            <video autoPlay muted loop className='sm:none md:flex'>
               <source src="/assets/rollingover.mp4" type="video/mp4"/>
             </video>
+            <div className={styles.background} />
           </div>
         </div>
       </main>

@@ -39,14 +39,6 @@ export default function ArtworkWithName({release, index}: ArtistImageWithNamePro
           src={release.imageSrc || ""}
           width="500"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
-        <div className="absolute inset-0 flex items-end justify-center pb-4 text-white opacity-0 transition-opacity duration-500 md:group-hover:opacity-100">
-          <p className="text-1xl flex flex-col p-5 text-center font-thin uppercase md:text-2xl">
-            <span className="uppercase">{release.songName}</span>
-            <span className="text-sm italic"> by </span>
-            <span className="uppercase">{release.artistName}</span>
-          </p>
-        </div> */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background opacity-90 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100" />
         <div className="absolute inset-0 flex items-end justify-center text-white opacity-100 transition-opacity duration-500 sm:pb-0 md:pb-4 md:opacity-0 md:group-hover:opacity-100">
           <p className="flex flex-col p-5 text-center text-2xl font-thin uppercase md:text-2xl">

@@ -19,10 +19,10 @@ export function SubtitleHeader({subtitle}: {subtitle: string}) {
         },
       }}
     >
-      <div className="flex max-h-16 items-center justify-center px-10 md:max-h-28 md:border-4 md:border-background">
-        <h1 className="text-bold my-24 text-center text-3xl uppercase text-white md:text-5xl md:text-background">
+      <div className="flex max-h-16 items-center justify-center px-10 md:max-h-28">
+        <h1 className="text-medium my-2 flex flex-col font-sans text-4xl font-semibold uppercase text-background md:my-12 md:text-8xl lg:text-7xl  xl:text-9xl">
           {subtitle}
-          <span className="font-bold text-background">✦</span>
+          <span className="font-bold text-bg"></span>
         </h1>
       </div>
     </motion.div>

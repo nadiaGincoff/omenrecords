@@ -17,7 +17,7 @@ export default function Artist({artist}: {artist: Artist}) {
 
   return (
     <motion.section
-      className="flex min-h-screen flex-col items-center justify-between gap-5 md:flex-row md:px-40"
+      className="flex min-h-screen flex-col items-center lg:justify-between gap-7 lg:flex-row md:px-20 lg:px-40"
       initial={{
         opacity: 0,
         // if odd index card,slide from right instead of left
@@ -32,7 +32,7 @@ export default function Artist({artist}: {artist: Artist}) {
         },
       }}
     >
-      <aside className="relative w-full md:w-1/2">
+      <aside className="relative w-full md:mt-40 lg:mt-0 lg:w-1/2 flex md:justify-center md:align-center lg:justify-end">
         <CldImage
           alt={artist.name || ""}
           className="artistImage aspect-[700/500] max-w-full object-cover transition duration-500 ease-in-out"
@@ -51,7 +51,7 @@ export default function Artist({artist}: {artist: Artist}) {
           </>
         ) : null}
       </aside>
-      <aside className="flex flex-col gap-7 p-5 md:w-1/2">
+      <aside className="flex flex-col gap-7 p-5 lg:w-1/2">
         {!isSmall ? (
           <p className="f text-left text-4xl uppercase md:text-8xl md:font-bold">{artist.name}</p>
         ) : null}

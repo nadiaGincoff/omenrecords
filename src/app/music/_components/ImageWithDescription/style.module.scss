@@ -14,7 +14,7 @@
     h1 {
       margin: 0px;
       margin-top: 10px;
-      margin-bottom: 5vh;
+      margin-bottom: 3vh;
       font-size: 5vw;
       line-height: 5vw;
       font-weight: 700;
@@ -22,16 +22,16 @@
     }
     h2 {
       margin: 0px;
-      font-size: 5vw;
+      font-size: 4vw;
       line-height: 6vw;
-      margin-bottom: 1vh;
+      margin-bottom: 0vh;
       span {
           position: relative;
       }
     }
     h3 {
       margin: 0px;
-      font-size: 3vw;
+      font-size: 2vw;
       text-transform: uppercase;
     }
   }
@@ -100,6 +100,27 @@
         &:nth-of-type(2) {
           display: none;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .body {
+      h1 {
+        line-height: 10vw;
+        font-size: 10vw;
+        margin-top: 5vh;
+      }
+      h2 {
+        font-size: 10vw;
+        line-height: 6vw;
+        margin-top: 0vh;
+        margin-bottom: 1vh;
+      }
+      h3 {
+        font-size: 5vw;
       }
     }
   }

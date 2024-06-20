@@ -1,10 +1,11 @@
 "use client";
-import {useState} from "react";
+import {useState, useRef} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
 import {useMediaQuery} from "@/hooks/useMediaQuery";
+import useClickOutside from '@/hooks/useClickOutside';
 
 import Button from "./Button";
 import Nav from "./Nav";
@@ -47,20 +48,18 @@ export default function Index() {
   const [isActive, setIsActive] = useState(false);
   const isSmall = useMediaQuery("(max-width: 768px)");
   const variants = generateMenuVariants(isSmall);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(menuRef, () => setIsActive(false));
 
   return (
     <div className="fixed z-10 h-20 w-full md:h-32">
       <Link className={`${styles.logo} flex items-center space-x-3 rtl:space-x-reverse`} href="/">
-        <Image
-          alt="logo"
-          height={isSmall ? 57 : 100}
-          src="/assets/logo.png"
-          width={isSmall ? 57 : 100}
-        />
+        <Image alt="logo" height={isSmall ? 57 : 100} src="/assets/logo.png" width={isSmall ? 57 : 100} />
       </Link>
-      <div className={styles.header}>
+      <div className={styles.header} ref={menuRef}>
         <motion.div
-          animate={isActive ? "open" : "closed"}
+          animate={isActive ? 'open' : 'closed'}
           className={styles.menu}
           initial="closed"
           variants={variants}

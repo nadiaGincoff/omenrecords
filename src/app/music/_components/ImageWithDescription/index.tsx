@@ -67,7 +67,7 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
       <div className={styles.body}>
         <h1>{release.songName}</h1>
         <div>
-          <Link href={`../artists/${release.artistName}`}>
+          <div>
             <h2>
               {release.artistName.split("").map((letter, i) => {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -78,13 +78,13 @@ export default function ImageWithDescription({release}: ImageWithDescriptionProp
                 );
 
                 return (
-                  <motion.span key={`l_${i}`} className="hover:text-lime-100" style={{top: y}}>
+                  <motion.span key={`l_${i}`} className="text-lime-100" style={{top: y}}>
                     {letter}
                   </motion.span>
                 );
               })}
             </h2>
-          </Link>
+          </div>
         </div>
         <Link href={release.hypedditUrl}>
           <h3 className="transform transition-transform hover:translate-x-1 hover:text-red-700">
