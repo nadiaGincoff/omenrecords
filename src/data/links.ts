@@ -30,8 +30,4 @@ export const socialMediaLinks = [
     id: 4,
     href: "https://www.youtube.com/@theomenrecords",
   },
-  {
-    id: 5,
-    href: "https://www.gmail.com/",
-  },
 ];

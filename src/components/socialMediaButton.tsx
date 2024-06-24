@@ -9,7 +9,6 @@ const socialMediaIcons: Record<number, IconType> = {
   2: ImInstagram,
   3: ImSpotify,
   4: ImYoutube,
-  5: ImMail2,
 };
 
 export default function SocialMediaButton({id, href, size, color}: SocialMediaButtonProps) {
