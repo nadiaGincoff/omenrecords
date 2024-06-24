@@ -17,8 +17,11 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
+  -webkit-mask-image: url('/assets/omenrecords.svg');
   mask-image: url('/assets/omenrecords.svg');
+  -webkit-mask-position: center center;
   mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   mask-size: 80%;
 }
