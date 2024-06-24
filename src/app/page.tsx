@@ -1,19 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState} from 'react';
+import { useEffect, useRef } from 'react';
+
 import Paragraph from "@/components/about/Paragraph";
-import TitleAndDescription from "@/components/about/TitleWithDescription";
 import Contact from "@/components/about/Contact";
-import styles from './page.module.css'
+
+import styles from "./page.module.css";
 
 export default function Home() {
   
   useEffect(() => {
     const hash = window.location.hash;
+
     if (hash) {
       const element = document.querySelector(hash);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, []);
